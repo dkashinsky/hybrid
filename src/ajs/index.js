@@ -29,7 +29,7 @@ function stateConfigFunction($stateProvider, $locationProvider) {
   $stateProvider.state({
     name: 'angular10',
     url: '/angular10',
-    template: '<div>Hi! I`am angular10 rendered view</div>'
+    template: '<poc-routed-view-component></poc-routed-view-component>'
   });
 };
 
