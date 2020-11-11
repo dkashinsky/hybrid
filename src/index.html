@@ -6,8 +6,15 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="ajs/bundle.js"></script>
 </head>
 <body>
-  <poc-root></poc-root>
+  <div ng-controller="MainCtrl">
+    {{ title }}
+    <button ng-click="sayHi()">Say Hi!</button>
+    <button ng-click="navigateAjs()">Navigate Angular.JS</button>
+    <button ng-click="navigateA10()">Navigate Angular 10</button>
+    <ui-view></ui-view>
+  </div>
 </body>
 </html>
