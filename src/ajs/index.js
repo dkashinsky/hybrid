@@ -1,7 +1,7 @@
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 
-function MainCtrl($scope, $state) {
+function MainCtrl($scope, $state, angularRouter) {
   $scope.title = 'I am angular.js app!';
 
   $scope.navigateAjs = function() {
@@ -9,7 +9,7 @@ function MainCtrl($scope, $state) {
   };
 
   $scope.navigateA10 = function() {
-    $state.go('angular10');
+    angularRouter.navigate(['/feature-1']);
   };
 }
 
@@ -19,17 +19,17 @@ function stateConfigFunction($stateProvider, $locationProvider) {
   $stateProvider.state({
     name: 'angularjs',
     url: '/angularjs',
-    template: '<div>Hi! I`am angular.js rendered view</div>'
+    template: '<div>Hi! I`am angular.js routed view</div>'
   });
 
   $stateProvider.state({
-    name: 'angular10',
-    url: '/angular10',
-    template: '<poc-routed-view-component></poc-routed-view-component>'
+    name: 'sink',
+    url: '/{path:.*}',
+    template: ''
   });
 };
 
 angular
   .module('app', [uiRouter])
-  .controller('MainCtrl', ['$scope', '$state', MainCtrl])
+  .controller('MainCtrl', ['$scope', '$state', 'angularRouter', MainCtrl])
   .config(['$stateProvider', '$locationProvider', stateConfigFunction]);
