@@ -1,3 +1,4 @@
+import { APP_BASE_HREF, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TestComponentComponent as TC1 } from './feature-1/components/test-component/test-component.component';
@@ -13,6 +14,10 @@ const routes: Routes = [
   declarations: [],
   imports: [
     RouterModule.forRoot(routes),
+  ],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/angular10' },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   exports: [
     RouterModule

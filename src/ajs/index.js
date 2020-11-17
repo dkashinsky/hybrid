@@ -4,10 +4,6 @@ import uiRouter from '@uirouter/angularjs';
 function MainCtrl($scope, $state) {
   $scope.title = 'I am angular.js app!';
 
-  $scope.sayHi = function() {
-    alert('Hi!');
-  };
-
   $scope.navigateAjs = function() {
     $state.go('angularjs');
   };
