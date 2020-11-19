@@ -18,8 +18,14 @@ function stateConfigFunction($stateProvider, $locationProvider) {
 
   $stateProvider.state({
     name: 'angularjs',
-    url: '/angularjs',
+    url: '/ajs-feature-1',
     template: '<div>Hi! I`am angular.js routed view</div>'
+  });
+
+  $stateProvider.state({
+    name: 'ajs',
+    url: '/ajs-feature-2',
+    template: '<div>Hi! I`am <b>another</b> angular.js routed view</div>'
   });
 
   $stateProvider.state({

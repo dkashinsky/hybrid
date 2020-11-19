@@ -10,6 +10,7 @@ import { AppComponent } from './components/app/app.component';
 import { UiViewComponent } from './components/ui-view/ui-view.component';
 import { setUpLocationSync } from '@angular/router/upgrade';
 import { Router } from '@angular/router';
+import { $stateServiceProvider } from './upgraded-providers';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,9 @@ import { Router } from '@angular/router';
     Feature1Module,
     Feature2Module
   ],
+  providers: [
+    $stateServiceProvider
+  ]
 })
 export class AppModule { 
   constructor(private upgrade: UpgradeModule, private router: Router) {}
