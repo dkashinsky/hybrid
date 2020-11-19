@@ -5,7 +5,6 @@ import { UpgradeModule } from '@angular/upgrade/static';
 import AJS_MODULE_NAME from './app.module.ajs';
 import { AppRoutingModule } from './app-routing.module';
 import { Feature1Module } from './feature-1/feature-1.module';
-import { Feature2Module } from './feature-2/feature-2.module';
 import { AppComponent } from './components/app/app.component';
 import { UiViewComponent } from './components/ui-view/ui-view.component';
 import { setUpLocationSync } from '@angular/router/upgrade';
@@ -22,7 +21,6 @@ import { $stateServiceProvider } from './upgraded-providers';
     UpgradeModule,
     AppRoutingModule,
     Feature1Module,
-    Feature2Module
   ],
   providers: [
     $stateServiceProvider
