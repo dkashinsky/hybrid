@@ -49,8 +49,7 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/ajs/bundle.js"
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -58,6 +57,19 @@
             "scripts": []
           },
           "configurations": {
+            "standalone": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.standalone.ts"
+                }
+              ]
+            },
+            "hybrid": {
+              "scripts": [
+                "src/ajs/bundle.js"
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -94,6 +106,12 @@
             "browserTarget": "poc:build"
           },
           "configurations": {
+            "standalone": {
+              "browserTarget": "poc:build:standalone"
+            },
+            "hybrid": {
+              "browserTarget": "poc:build:hybrid"
+            },
             "production": {
               "browserTarget": "poc:build:production"
             }

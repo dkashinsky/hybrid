@@ -1,6 +1,7 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, UrlHandlingStrategy, UrlTree } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { TestComponentComponent as TC1 } from './feature-1/components/test-component/test-component.component';
 
 const routes: Routes = [
@@ -28,7 +29,7 @@ class HandlingStrategy implements UrlHandlingStrategy {
   imports: [
     RouterModule.forRoot(routes, {
       useHash: true,
-      initialNavigation: false
+      initialNavigation: environment.standalone
     }),
   ],
   providers: [
