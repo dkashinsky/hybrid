@@ -4,7 +4,9 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'poc-app',
   template: `
-    <poc-ui-view *ngIf="isHybridApp"></poc-ui-view>
+    <div *ngIf="isHybridApp; then hybridNavigation; else standaloneNavigation"></div>
+    <ng-template #hybridNavigation><poc-ui-view></poc-ui-view></ng-template>
+    <ng-template #standaloneNavigation><poc-navigation></poc-navigation></ng-template>
     <router-outlet></router-outlet>
   `,
 })

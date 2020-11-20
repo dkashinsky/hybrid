@@ -7,13 +7,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <div ng-controller="MainCtrl">
-    {{ title }}
-    <button ng-click="navigateAjs()">Navigate Angular.JS</button>
-    <button ng-click="navigateA10()">Navigate Angular 10</button>
-    <a href="#/feature-2">Regular link</a>
-    <a ui-sref="ajs">UI Router state link</a>
-    <poc-app></poc-app>
-  </div>
+  <ajs-navigation></ajs-navigation>
+  <poc-app></poc-app>
 </body>
 </html>

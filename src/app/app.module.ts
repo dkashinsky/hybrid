@@ -11,11 +11,13 @@ import { setUpLocationSync } from '@angular/router/upgrade';
 import { Router } from '@angular/router';
 import { $stateServiceProvider } from './upgraded-providers';
 import { environment } from 'src/environments/environment';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UiViewComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
