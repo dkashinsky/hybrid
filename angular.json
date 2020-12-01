@@ -57,17 +57,30 @@
             "scripts": []
           },
           "configurations": {
-            "standalone": {
+            "hybrid": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.standalone.ts"
+                  "with": "src/environments/environment.hybrid.ts"
                 }
-              ]
-            },
-            "hybrid": {
+              ],
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
+                {
+                  "glob": "**/*",
+                  "input": "./dist/ajs/",
+                  "output": "/",
+                  "ignore": [
+                    "index.js"
+                  ]
+                }
+              ],
               "scripts": [
-                "src/ajs/bundle.js"
+                "node_modules/angular/angular.js",
+                "node_modules/@uirouter/angularjs/release/angular-ui-router.js",
+                "node_modules/oclazyload/dist/ocLazyLoad.js",
+                "dist/ajs/index.js"
               ]
             },
             "production": {
@@ -106,9 +119,6 @@
             "browserTarget": "poc:build"
           },
           "configurations": {
-            "standalone": {
-              "browserTarget": "poc:build:standalone"
-            },
             "hybrid": {
               "browserTarget": "poc:build:hybrid"
             },
@@ -124,6 +134,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "poc"
 }

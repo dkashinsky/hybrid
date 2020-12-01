@@ -1,5 +1,4 @@
-import angular from 'angular';
-import uiRouter from '@uirouter/angularjs';
+// NOTE: angular, uiRouter, and ocLazyLoad are bundled via scripts angular configuration section
 import { navigationComponent } from './components/navigation.component';
 
 function MainCtrl($scope, $state, angularRouter) {
@@ -30,6 +29,15 @@ function stateConfigFunction($stateProvider, $locationProvider) {
   });
 
   $stateProvider.state({
+    name: 'ajs-lazy.**',
+    url: '/ajs-lazy-feature',
+    lazyLoad: function ($transition$) {
+      const $ocLazyLoad = $transition$.injector().get('$ocLazyLoad');
+      return import('./lazy/lazy.module.js').then(mod => $ocLazyLoad.load(mod.LAZY_MODULE));
+    }
+  });
+
+  $stateProvider.state({
     name: 'sink',
     url: '/{path:.*}',
     template: ''
@@ -37,7 +45,7 @@ function stateConfigFunction($stateProvider, $locationProvider) {
 };
 
 angular
-  .module('app', [uiRouter])
+  .module('app', ['ui.router', 'oc.lazyLoad'])
   .component('ajsNavigation', navigationComponent)
   .controller('MainCtrl', ['$scope', '$state', 'angularRouter', MainCtrl])
   .config(['$stateProvider', '$locationProvider', stateConfigFunction]);
